@@ -1,0 +1,6 @@
+{
+  "name": "COMPRO Admissions Portal",
+  "description": "Maharishi University Computer Professionals (COMPRO) Program admissions application and reviewer heuristic screening portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

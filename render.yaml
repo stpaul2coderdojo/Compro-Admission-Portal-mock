@@ -1,0 +1,21 @@
+# Render Blueprint configuration for COMPRO Admissions Portal
+# See https://render.com/docs/blueprint-spec for details
+
+services:
+  - type: web
+    name: compro-admissions-portal
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: REVIEWER_USERNAME
+        value: admissions
+      - key: REVIEWER_PASSWORD
+        sync: false
+        value: compro2026
