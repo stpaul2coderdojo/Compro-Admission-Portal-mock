@@ -17,5 +17,4 @@ services:
       - key: REVIEWER_USERNAME
         value: admissions
       - key: REVIEWER_PASSWORD
-        sync: false
         value: compro2026
