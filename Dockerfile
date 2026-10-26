@@ -5,8 +5,8 @@ WORKDIR /app
 # Copy package descriptors
 COPY package*.json ./
 
-# Install dependencies (including devDependencies for Vite & TypeScript build)
-RUN npm ci
+# Install dependencies (fallback to npm install if lockfile mismatch)
+RUN if [ -f package-lock.json ]; then npm ci || npm install; else npm install; fi
 
 # Copy application source code
 COPY . .
@@ -23,7 +23,7 @@ ENV PORT=3000
 
 # Install production dependencies
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN if [ -f package-lock.json ]; then npm ci --omit=dev || npm install --omit=dev; else npm install --omit=dev; fi
 
 # Copy built frontend assets and server entrypoint
 COPY --from=builder /app/dist ./dist
